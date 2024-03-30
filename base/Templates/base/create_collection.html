@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% comment %} Can you make a nice title for the page? {% endcomment %}
+{% block title %}New Collection{% endblock title %}
+
+{% block content %}
+    <div class="container" style="width: 600px;">
+        <div class="card mt-5 mb-5">
+            <div class="card-header">
+              <h3 class="text-center">Create a new Collection</h3>
+            </div>
+            <div class="card-body">
+              <form method="post">
+                {% csrf_token %}
+                Medition:
+                {% if medicine %}
+                <select name="medition" class="form-control" required id="id_medition">
+                  <option value="{{ medicine.id }}">{{ medicine.name }}</option>
+                </select>
+                {% else %}
+                  {{ form.medition }}
+                {% endif %}
+                UserID:
+                {{ form.userID }}
+                Date:
+                {{ form.date }}
+                <br>
+                <button type="submit" class="btn btn-secondary rounded-pill" name="action" value="save">Save</button>
+              </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

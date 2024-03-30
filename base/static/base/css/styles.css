@@ -1,0 +1,102 @@
+.a img {
+    width: 6%;
+    height: 25%;
+    border-radius: 25px;
+    padding: 7px 14px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    text-align: left;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.navbar {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navbar-item {
+    margin-left: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.navbar-brand {
+    padding: 6px 10px;
+}
+
+body {
+    background-color: rgb(204, 209, 255);
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.nav a {
+    margin-left: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: x-large;
+    color: black;
+    font-style: italic;
+}
+
+/* a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: darkred;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blueviolet;
+    text-decoration: underline;
+} */
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFC;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+.edits {
+    font-size: large;
+    color: black;
+    font-style: italic;
+}
+
+.btn-link {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+    color: white !important;
+    text-decoration: none !important;
+}

@@ -1,0 +1,46 @@
+{% load static %}
+
+<div class="menu">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary rounded-pill">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'base/images/logo.jpg' %}" width="100" height="100" class="d-inline-block align-top rounded-circle">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                {% if not user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'collections_for_user' %}">My Collections</a>
+                </li>
+                {% endif %}
+                
+                {% if user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'create_collection' %}">New Collection</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'collections_for_admin' %}">All Collections</a>
+                <li>
+                    <a class="nav-link" href="{% url 'new_medicine' %}">New Medicine</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{% url 'medicine' %}">All medications</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>

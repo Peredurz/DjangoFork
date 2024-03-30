@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block title %}All Medications{% endblock title %}
+
+{% block content %}
+<div class="container" style="width: 600px;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-5 mb-5">
+                <div class="card-header">
+                    <h3 class="text-center">My Medications</h3>
+                </div>
+                <div class="card-body">
+                    {% for medicine in medicines %}
+                    <div class="container">
+                        <strong>Name: </strong> <a href="{% url 'medicine_profile' medicine.pk %}">{{medicine.name}}</a><br>
+                        <strong>Manufacturer: </strong> {{ medicine.manufacturer }}<br>
+                        <strong>Cures: </strong> {{ medicine.cures }}<br>
+                        <strong>Side effects: </strong> {{ medicine.sideEffects }}<br>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="medicine_id" value="{{ medicine.pk }}">
+                            <button type="submit" class="btn btn-secondary rounded-pill" name="action" value="edit">Edit</button>
+                            <button type="submit" class="btn btn-secondary rounded-pill" name="action" value="delete">Delete</button>
+                            <button type="submit" class="btn btn-secondary rounded-pill" name="action" value="collection">Collection</button>
+                        </form>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

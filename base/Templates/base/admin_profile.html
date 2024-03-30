@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+   Profile of {{ username }}
+{% endblock title %}
+
+{% block content %}
+<h1 style="text-align: center;">Profile of {{ username }}</h1>
+<div class="container" style="display: flex; justify-content: space-between;">
+    <div>
+        <div class="card mt-5 mb-5">
+            <div class="card-header">
+                <h3 class="text-center">Open Collections</h3>
+            </div>
+            <div class="card-body">
+                {% for collection in open_collections %}
+                    <strong>Medition: </strong> {{ collection.medition }}<br>
+                    <strong>Medition date: </strong> {{ collection.date }}<br>
+                    <strong>Collected: </strong> {{ collection.collected }}<br>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <div>
+        <div class="card mt-5 mb-5">
+            <div class="card-header">
+                <h3 class="text-center">Completed Collections</h3>
+            </div>
+            <div class="card-body">
+                {% for collection in completed_collections %}
+                    <strong>Medition: </strong> {{ collection.medition }}<br>
+                    <strong>Medition date: </strong> {{ collection.date }}<br>
+                    <strong>Collected: </strong> {{ collection.collected }}<br>
+                    <strong>Collection approved: </strong> {{ collection.collectedApproved }}<br>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <div>
+        <div class="card mt-5 mb-5">
+            <div class="card-header">
+                <h3 class="text-center">Approved Collections</h3>
+            </div>
+            <div class="card-body">
+                {% for collection in approved_collected %}
+                    <strong>Medition: </strong> {{ collection.medition }}<br>
+                    <strong>Medition date: </strong> {{ collection.date }}<br>
+                    <strong>Collected: </strong> {{ collection.collected }}<br>
+                    <strong>Collection approved: </strong> {{ collection.collectedApproved }}<br>
+                    <strong>Collection approved by: </strong> {{ collection.collectedApprovedBy }}<br>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

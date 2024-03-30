@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-5 mb-5">
+                <div class="card-header">
+                    <h3 class="text-center">Edit Profile</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ user_form.as_p }}
+                        {{ profile_form.as_p }}
+                        <button type="submit" class="btn btn-secondary rounded-pill" action="save">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

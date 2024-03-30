@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    
+    <h1>Confirmation</h1>
+    <strong>Name: </strong> {{ medicine.name }} <br>
+    <strong>Manufacturer: </strong> {{ medicine.manufacturer }} <br>
+    <strong>Cures: </strong> {{ medicine.cures }} <br>
+    <strong>Side effects: </strong> {{ medicine.sideEffects }} <br>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="medicine" value={{ medicine.pk }}>
+        <button type="submit" class="btn btn-secondary rounded-pill" name="action" value="confirm">Confirm</button>
+        <button type="submit" class="btn btn-secondary rounded-pill"  name="action" value="cancel">Cancel</button>
+    </form>
+{% endblock content %}

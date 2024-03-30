@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% block title %}All My Collections{% endblock title %}
+
+{% block content %}
+<div class="container" style="width: 600px;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-5 mb-5">
+                <div class="card-header">
+                    <h3 class="text-center">My Collections</h3>
+                </div>
+                <div class="card-body">
+                    {% for collection in collections %}
+                    <div class="container">
+                        <strong>Medition: </strong> <a href="{% url 'medicine_profile' collection.medition.pk %}">{{collection.medition.name}}</a><br>
+                        <strong>User: </strong> {{ collection.userID }}<br>
+                        <strong>Date: </strong> {{ collection.date }}<br>
+                        <strong>Collected: </strong> {{ collection.collected }}<br>
+                        <strong>Approved By Admin: </strong> {{ collection.collectedApproved }}<br>
+                        <button type="submit" class="btn btn-secondary rounded-pill"  onclick="window.location.href='{% url 'approve_collected' collection.pk %}'">Approve</button>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

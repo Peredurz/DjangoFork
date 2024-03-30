@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-5 mb-5">
+                <div class="card-header">
+                    <h3 class="text-center">Profile</h3>
+                </div>
+                <div class="card-body">
+                    <strong>Username: </strong> {{ user.username }} <br>
+                    <strong>Email: </strong> {{ user.email }} <br>
+                    <strong>Full name: </strong> {{ user.first_name}} {{ user.last_name }} <br>
+                    <strong>Residence: </strong> {{ profile.city }} <br>
+                    <strong>Birthdate: </strong> {{ profile.date_of_birth }} <br>
+                    <br>
+                    <strong>Bio: </strong> {{ profile.bioText }} <br>
+                    <br>
+                    <button type="submit" class="btn btn-secondary rounded-pill" onclick="window.location.href='{% url 'edit_profile' %}'">Edit Profile</button>
+                    <button type="submit" class="btn btn-secondary rounded-pill" onclick="window.location.href='{% url 'edit_password' %}'">Edit Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}

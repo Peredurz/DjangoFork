@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% block title %}All Collections{% endblock title %}
+
+{% block content %}
+    <div class="container" style="width: 600px;">
+        <div class="card mt-5 mb-5">
+            <div class="card-header">
+              <h3 class="text-center">Collections</h3>
+            </div>
+            <div class="card-body">
+              <form method="post">
+                {% for collection in collections %}
+                {% csrf_token %}
+                Medition:
+                <a href="{% url 'medicine_profile' collection.medition.pk %}">{{collection.medition.name}}</a><br>
+                UserID:
+                <a href="{% url 'admin_profile' collection.userID.pk %}">{{collection.userID}}</a> <br>
+                Date:
+                {{ collection.date }} <br>
+                Collected:
+                {{ collection.collected }} <br>
+                Approved By Admin:
+                {{ collection.collectedApproved }} <br>
+                <button type="submit" class="btn btn-secondary rounded-pill"  onclick="window.location.href='{% url 'approve_collection' collection.pk %}'">Approve</button>
+                <button type="submit" class="btn btn-secondary rounded-pill" onclick="window.location.href='{% url 'delete_collection' collection.pk %}'">Delete</button> <br> <br>
+              </form>
+              <hr>
+              {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
